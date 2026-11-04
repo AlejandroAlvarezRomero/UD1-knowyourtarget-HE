@@ -90,3 +90,8 @@ $ theHarvester -d playstation.com -b all -l 200
 2026-11-02 14:24 objetivo: Empleados de PlayStation (in scope)
 $ Búsqueda pasiva en Google: site:linkedin.com
 -> Resultados: Se logran identificar perfiles de ingenieros de seguridad y DevOps en los resultados de búsqueda de Google.
+
+
+
+
+
