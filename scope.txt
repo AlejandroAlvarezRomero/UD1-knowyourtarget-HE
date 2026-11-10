@@ -1,0 +1,55 @@
+# ===========================================================================
+#  ALCANCE AUTORIZADO · PlayStation Bug Bounty (HackerOne)
+# ===========================================================================
+#  Fuente: https://hackerone.com/playstation/policy_scopes
+#  Consultado: 2026-11-06
+#
+#  Este fichero es la LISTA BLANCA del agente: solo tocará lo que esté aquí.
+#  Todo lo que no aparezca queda FUERA, aunque el modelo "quiera" investigarlo.
+#
+#  El programa autoriza 24 activos. De ellos, este agente solo trabaja los
+#  activos WEB/DOMINIO. Quedan fuera de ESTE agente (no hay herramientas para
+#  ellos): las apps Android/iOS y el hardware PS4/PS5.
+#
+#  Reglas del programa que el agente debe respetar:
+#   - Solo dominios listados. Cualquier otro dominio está fuera de alcance.
+#   - Nada de escaneo activo, explotación, fuerza bruta, DoS ni ingeniería social.
+#   - Nada de infraestructura corporativa interna.
+#   - Nada de acceder/alterar datos más allá de lo necesario para demostrar algo.
+#   - Los "scanner output" y los informes generados por herramientas automáticas
+#     de explotación están excluidos: el agente solo hace reconocimiento pasivo
+#     y el informe debe citar la herramienta que respalda cada dato.
+# ===========================================================================
+
+# -------------------- DOMINIOS RAÍZ / COMODINES --------------------
+# El ápice playstation.com se incluye para poder consultar WHOIS, DNS y
+# transparencia de certificados del dominio raíz. La enumeración de subdominios
+# queda limitada por *.playstation.com, que es el comodín del programa.
+playstation.com
+*.playstation.com
+*.playstation.net
+*.sonyentertainmentnetwork.com
+*.api.playstation.com
+
+# -------------------- HOSTS EXPLÍCITAMENTE LISTADOS --------------------
+api.direct.playstation.com
+ca.account.sony.com
+checkout.playstation.com
+compete.playstation.com
+direct.playstation.com
+my.account.sony.com
+my.playstation.com
+profile.playstation.com
+ps5.np.playstation.net
+session-share.playstation.com
+social.playstation.com
+store.playstation.com
+transact.playstation.com
+wallets.api.playstation.com
+web.np.playstation.com
+www.playstation.com
+
+# -------------------- EXCLUSIONES --------------------
+# El programa no publica hosts excluidos: todo lo que no esté arriba queda fuera.
+# Si en el futuro el programa añade exclusiones, se escriben aquí con "!" delante.
+!blog.playstation.com

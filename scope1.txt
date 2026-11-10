@@ -1,7 +1,0 @@
-# scope.txt · programa: PlayStation · consultado: 2026-10-28
-*.playstation.com
-*.playstation.net
-*.sonyentertainmentnetwork.com
-*.api.playstation.com
-my.account.sony.com
-ca.account.sony.com

@@ -15,6 +15,9 @@ Repositorio oficial del proyecto de reconocimiento pasivo y OSINT desarrollado e
   * `*.playstation.com`
   * `*.playstation.net`
   * `*.sonyentertainmentnetwork.com`
+  * `*.api.playstation.com`
+  * `my.account.sony.com`
+  * `ca.account.sony.com`
 
 ---
 
@@ -41,3 +44,21 @@ La documentación del proyecto se encuentra estructurada en fases secuenciales:
    * Documento ejecutivo de síntesis para el equipo antes de la fase activa.
    * Contiene el resumen perimetral, la tabla representativa de subdominios e IPs, análisis de la infraestructura cloud (AWS / Akamai), evaluación de perfiles de empleados y la priorización táctica de los 3 vectores iniciales para el laboratorio activo.
 
+4. **Parte 2: agente**
+
+   * [Código del agente](./agente/src/)
+   * [Pruebas de alcance y prompt](./agente/pruebas.md)
+   * [Plantilla del prompt](./agente/instrucciones.md)
+   * [Traza JSONL](./agente/traza.jsonl)
+   * [Traza legible](./agente/traza.log)
+   * [Informe generado por la IA](./agente/informe.md)
+
+5. **[Comparativa (`comparativa.md`)](./comparativa.md)**
+
+   Compara la investigación manual de la Parte 1 con la ejecución del agente,
+   incluyendo coincidencias, diferencias, omisiones, inferencias, métricas y
+   la prueba del `scope-guard`.
+
+El `scope.txt` de la raíz es la lista blanca usada en la Parte 2. La ejecución
+principal y la prueba de seguridad se conservan en `agente/`; no se incluyen
+claves ni credenciales.
