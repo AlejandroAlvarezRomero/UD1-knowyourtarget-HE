@@ -29,3 +29,16 @@ PlayStation excluye explícitamente los siguientes vectores y vulnerabilidades:
 * Secuestro de Route 53 NS.
 * Problemas de bajo impacto: falta de cabeceras de seguridad, limitación de velocidad sin impacto, fingerprinting, revelación de errores, clickjacking o envenenamiento de caché no crítico.
 
+## Reglas aplicadas en este proyecto
+
+- Solo se han usado técnicas pasivas: consulta de fuentes públicas, DNS,
+  transparencia de certificados y fuentes de terceros. La única consulta HTTP
+  directa se limita a ficheros públicos estándar (`robots.txt` y
+  `security.txt`).
+- No se han realizado escaneos de puertos, pruebas de vulnerabilidades,
+  fuerza bruta, fuzzing, denegación de servicio ni contacto con personas.
+- Si apareciera información sensible, no se copiaría ni explotaría: se
+  anotaría de forma mínima y se comunicaría por el canal del programa.
+- Antes de cualquier fase posterior se debe revisar de nuevo la política
+  vigente, incluidos requisitos de identificación y límites de peticiones.
+

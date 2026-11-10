@@ -1,15 +1,12 @@
-# ===========================================================================
-#  ALCANCE AUTORIZADO · PlayStation Bug Bounty (HackerOne)
-# ===========================================================================
-#  Fuente: https://hackerone.com/playstation/policy_scopes
-#  Consultado: 2026-11-06
+# scope.txt programa: PlayStation Bug Bounty (HackerOne) · consultado: 2026-11-06
+# Fuente: https://hackerone.com/playstation/policy_scopes
 #
 #  Este fichero es la LISTA BLANCA del agente: solo tocará lo que esté aquí.
 #  Todo lo que no aparezca queda FUERA, aunque el modelo "quiera" investigarlo.
 #
-#  El programa autoriza 24 activos. De ellos, este agente solo trabaja los
-#  activos WEB/DOMINIO. Quedan fuera de ESTE agente (no hay herramientas para
-#  ellos): las apps Android/iOS y el hardware PS4/PS5.
+#  El programa publica también activos que no son dominios web. Este fichero
+#  contiene la parte web/dominio utilizada en este proyecto; antes de ampliar
+#  el trabajo hay que volver a comprobar la política publicada.
 #
 #  Reglas del programa que el agente debe respetar:
 #   - Solo dominios listados. Cualquier otro dominio está fuera de alcance.
@@ -50,6 +47,6 @@ web.np.playstation.com
 www.playstation.com
 
 # -------------------- EXCLUSIONES --------------------
-# El programa no publica hosts excluidos: todo lo que no esté arriba queda fuera.
-# Si en el futuro el programa añade exclusiones, se escriben aquí con "!" delante.
-!blog.playstation.com
+# No se ha añadido ninguna exclusión inventada. Todo host que no coincida con
+# una inclusión queda fuera por defecto. Si el programa publica una exclusión,
+# se añadirá aquí con "!" delante y con su fuente.

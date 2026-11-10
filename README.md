@@ -50,7 +50,7 @@ La documentación del proyecto se encuentra estructurada en fases secuenciales:
    * [Pruebas de alcance y prompt](./agente/pruebas.md)
    * [Plantilla del prompt](./agente/instrucciones.md)
    * [Traza JSONL](./agente/traza.jsonl)
-   * [Traza legible](./agente/traza.log)
+   * La traza se puede convertir a formato legible con `agente/src/ver_traza.py`.
    * [Informe generado por la IA](./agente/informe.md)
 
 5. **[Comparativa (`comparativa.md`)](./comparativa.md)**
@@ -59,6 +59,5 @@ La documentación del proyecto se encuentra estructurada en fases secuenciales:
    incluyendo coincidencias, diferencias, omisiones, inferencias, métricas y
    la prueba del `scope-guard`.
 
-El `scope.txt` de la raíz es la lista blanca usada en la Parte 2. La ejecución
-principal y la prueba de seguridad se conservan en `agente/`; no se incluyen
-claves ni credenciales.
+El `scope.txt` de la raíz y el de `agente/src/` son idénticos. La ejecución
+principal se conserva en `agente/`; no se incluyen claves ni credenciales.

@@ -1,0 +1,9 @@
+ README.md            |  7 [32m+++[m[31m----[m
+ agente/pruebas.md    | 43 [32m+++++++++++++++++++++[m[31m--------------------[m
+ agente/src/scope.txt | 19 [32m++++++++[m[31m----------[m
+ alcance.md           | 13 [32m+++++++++++++[m
+ comparativa.md       | 54 [32m++++++++++++++++++++++++[m[31m----------------------------[m
+ cuaderno.md          | 13 [32m+++++++++++++[m
+ mapa.md              | 10 [32m+++++[m[31m-----[m
+ scope.txt            | 19 [32m++++++++[m[31m----------[m
+ 8 files changed, 97 insertions(+), 81 deletions(-)

@@ -1,7 +1,7 @@
 # MAPA DE RECONOCIMIENTO: PlayStation (Sony Interactive Entertainment)
 
 ## Resumen
-La infraestructura pública de PlayStation presenta un altísimo nivel de madurez y fortificación perimetral. Operan un entorno híbrido y global sostenido principalmente por Amazon Web Services (AWS) y la CDN de Akamai, con políticas de seguridad estrictas (DMARC `p=reject`, HSTS, y bloqueo de herramientas CLI mediante WAF). Durante el escaneo pasivo se consolidaron más de 1.500 subdominios, exponiendo una amplia arquitectura de microservicios y APIs. No se identificaron fugas críticas de información ni servicios administrativos (SSH/RDP) expuestos, lo que obliga a orientar la fase activa hacia la lógica de negocio y vulnerabilidades web en aplicaciones de terceros o entornos de desarrollo (*stage/dev*).
+La información pública recogida muestra una presencia web amplia, con referencias a AWS, Akamai, Microsoft 365 y varios servicios SaaS. El DNS publicado aplica DMARC `p=reject` y la muestra de InternetDB solo devolvió 80 y 443 para una IP consultada. Se reunieron más de 1.500 subdominios entre subfinder y crt.sh, por lo que el inventario debe tratarse como una fotografía temporal, no como una lista definitiva. No se identificaron datos sensibles confirmados durante este reconocimiento pasivo. [Cuaderno: 28-10 20:27 a 02-11 14:24]
 
 ## Dominios y subdominios (Muestra representativa)
 *Basado en las consolidaciones de subfinder, crt.sh y theHarvester.*
@@ -21,13 +21,13 @@ La infraestructura pública de PlayStation presenta un altísimo nivel de madure
 *   **Hosting y Red:** Infraestructura cloud nativa alojada en **AWS (EC2, Route 53)** con balanceadores de carga (Elastic Load Balancing). Todo el tráfico perimetral es gestionado y mitigado por la CDN y el WAF de **Akamai**.
 *   **Tecnologías Web:** Los servidores web exponen cabeceras seguras (X-Frame-Options, X-Content-Type-Options) y operan con HTML5, JavaScript y el framework visual D3.js.
 *   **Servicios Expuestos:** La IP principal de la web (`54.215.24.50`) solo expone los puertos estándar **80 (HTTP) y 443 (HTTPS)**. Shodan no reporta vulnerabilidades (CVEs) públicas pasivas.
-*   **Correo y Terceros:** Correo corporativo gestionado integralmente bajo **Microsoft 365** (protección Outlook). Alta integración de servicios SaaS verificados por DNS (Zoom, Klaviyo, Google Workspace) y un uso intensivo del CRM **Salesforce**.
+*   **Correo y Terceros:** El MX apunta a Microsoft 365. Los TXT observados incluyen verificaciones de Google, Zoom, Klaviyo y Salesforce; son integraciones visibles, no vulnerabilidades. [Cuaderno: 28-10 20:31 y 20:33]
 
 ## Correos y personas
 *Basado en la ejecución de theHarvester y Dorks de LinkedIn.*
 
-*   **Patrón y Direcciones:** Debido a las restricciones de API de las fuentes abiertas y la madurez del objetivo, no se han recolectado direcciones en texto plano. Históricamente, el patrón corporativo asume formatos estándar (`nombre.apellido@playstation.com`), fuertemente protegidos por filtros anti-spam y Microsoft Defender.
-*   **Organización:** La búsqueda pasiva (Dorks) en LinkedIn revela una estructura departamental segmentada, destacando perfiles técnicos especializados en **DevOps, Seguridad de la Información (InfoSec) y Cloud Architecture**. Esto indica que cualquier ataque de ingeniería social o *phishing* enfrentaría a personal altamente capacitado.
+*   **Correos:** theHarvester no devolvió direcciones de correo. No se infiere ningún patrón corporativo a partir de ese resultado. [Cuaderno: 02-11 14:15]
+*   **Organización:** La búsqueda pública mostró referencias a perfiles técnicos de DevOps y seguridad. Se conserva únicamente el nivel de rol, sin personas ni enlaces, porque el proyecto no contempla contacto ni ingeniería social. [Cuaderno: 02-11 14:24]
 
 ## Puntos de interés (Fase Activa)
 Para iniciar la fase activa (interactuando con los servidores bajo las reglas del programa), se priorizarán los siguientes tres vectores, derivados de la información pasiva:

@@ -2,7 +2,7 @@
 
 ## 1. Fuentes comparadas
 
-- **Parte 1:** `cuaderno.md`, `mapa.md` y `agente/cuaderno_agente.md`,
+- **Parte 1:** `cuaderno.md` y `mapa.md`,
   ejecutados entre el 28 de octubre y el 2 de noviembre de 2026.
 - **Parte 2:** `agente/informe.md` y `agente/traza.jsonl`, ejecutados el
   10 de noviembre de 2026 contra `playstation.com`.
@@ -47,19 +47,19 @@ IPs y recuentos pueden reflejar cambios reales o diferencias entre fuentes.
 
 ## 4. Fallos, omisiones e inferencias
 
-### Omisiones
+### Omisión
 
-- No consultó el registro DMARC.
-- No existe una medición comparable del tiempo de la Parte 1 en los documentos.
-- La búsqueda automática no reproduce exactamente todas las dorks de la Parte 1.
+- No consultó el registro DMARC: en el cuaderno aparece la consulta a
+  `_dmarc.playstation.com`, pero no hay una llamada equivalente en la traza.
+- La búsqueda automática no reproduce exactamente todas las dorks manuales.
 
-### Diferencias que no son necesariamente errores
+### Error o diferencia de fuente
 
 - Las IPs y los recuentos de subdominios pueden cambiar con el tiempo.
 - Netcraft, crt.sh, Subfinder y DNS no garantizan resultados idénticos en
   fechas distintas.
 
-### Inferencias que deben presentarse como tales
+### Invención o inferencia no respaldada
 
 El informe del agente incluye valoraciones como «configuración de seguridad
 razonable», «resiliencia» o «ambientes que deberían estar protegidos». Son
@@ -67,26 +67,22 @@ interpretaciones, no vulnerabilidades confirmadas. La Parte 1 también contiene
 inferencias similares, por ejemplo asumir patrones de correo o priorizar
 vectores para una fase activa.
 
-No se ha encontrado en la traza evidencia de una invención clara de una fuente
-o de una vulnerabilidad explotada. Aun así, el informe debe revisarse antes de
-entregarlo.
+No hay evidencia de una vulnerabilidad inventada, pero expresiones como
+«configuración de seguridad razonable» no son hechos devueltos por una fuente:
+son interpretaciones del modelo y deben etiquetarse como tales.
+
+### Intento fuera de alcance
+
+La traza principal entregada no contiene un intento fuera de alcance. El
+documento de pruebas anterior hacía referencia a una ejecución distinta que no
+se conserva junto a la traza actual; por eso no se usa como evidencia en esta
+comparativa.
 
 ## 5. Prueba del scope-guard
 
-En la segunda ejecución se incluyeron dos objetivos no autorizados:
-
-- `example.com`: bloqueado por estar fuera de la lista blanca.
-- `blog.playstation.com`: bloqueado por la exclusión explícita
-  `!blog.playstation.com`.
-
-La traza contiene:
-
-```text
-BLOQUEADO: example.com está fuera del alcance autorizado.
-BLOQUEADO: blog.playstation.com está fuera del alcance autorizado.
-```
-
-El modelo continuó con `playstation.com` y no insistió con esos objetivos.
+El código aplica una lista blanca y tiene pruebas unitarias del bloqueo, pero
+la traza principal no contiene un intento fuera de alcance. No se debe afirmar
+que el modelo reaccionó a ese caso si no hay una traza de esa ejecución.
 
 ## 6. Métricas de la ejecución del agente
 
@@ -94,12 +90,12 @@ El modelo continuó con `playstation.com` y no insistió con esos objetivos.
 - Tokens de entrada: 41.148.
 - Tokens de salida: 6.436.
 - Coste en euros: no aparece en la traza ni en la salida del proveedor.
-- Tiempo exacto: no queda registrado como métrica de ejecución en el informe;
-  debe anotarse desde la terminal si el profesor lo exige.
+- Tiempo exacto: no quedó registrado; no se puede reconstruir con precisión.
 
 ## 7. Conclusión
 
-El agente amplía y automatiza el reconocimiento manual, pero no sustituye la
-revisión humana. Antes de considerar un dato como hallazgo hay que comprobarlo
-en `agente/traza.jsonl`, distinguir observado de inferido y verificar que el
-activo sigue dentro del alcance autorizado.
+El agente ahorra trabajo repetitivo, sobre todo al consultar varias fuentes y
+ordenar los resultados. El trabajo manual fue mejor al registrar DMARC y al
+dar contexto a cada consulta. No usaría el informe del agente sin revisarlo:
+confirmaría la fuente de cada afirmación, separaría hechos de inferencias y
+revisaría de nuevo que cada activo siga dentro del alcance.
